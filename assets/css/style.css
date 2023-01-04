@@ -1,0 +1,12 @@
+body {
+    font-family: 'Acme', sans-serif;
+}
+
+.font-title {
+    font-family: 'Kaushan Script', cursive;
+}
+
+.kontak iframe {
+    width: 100%;
+    height: 450px;
+}
