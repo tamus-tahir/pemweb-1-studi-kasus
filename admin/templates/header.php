@@ -1,4 +1,4 @@
-<?php include_once 'config/autoload.php' ?>
+<?php include_once '../../config/autoload.php' ?>
 
 <!doctype html>
 <html lang="id">
@@ -12,7 +12,7 @@
 
     <link rel="icon" href="<?= $base_url . 'assets/images/logo.png'; ?>">
 
-    <title>UNITAMA || <?= strtoupper($uri_segment[2] ? $uri_segment[2] : 'BERANDA'); ?></title>
+    <title>UNITAMA || <?= strtoupper($uri_segment[3]); ?></title>
 
     <!-- font -->
     <link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
@@ -29,20 +29,18 @@
     <!-- nav -->
     <nav class="navbar navbar-expand-lg bg-body-tertiary bg-primary navbar-dark fw-bold">
         <div class="container">
-            <a class="navbar-brand" href="<?= $base_url; ?>">
-                <img src="<?= $base_url . 'assets/images/logo-brand.png'; ?>" alt="Logo" width="160" height="40" class="d-inline-block align-text-top">
-            </a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav ms-auto">
-                    <a class="nav-link <?= $uri_segment[2] == '' ? 'active' : ''; ?>" href="<?= $base_url; ?>">BERANDA</a>
-                    <a class="nav-link <?= $uri_segment[2] == 'berita' ? 'active' : ''; ?>" href="<?= $base_url . 'berita'; ?>">BERITA</a>
-                    <a class="nav-link <?= $uri_segment[2] == 'pendaftaran' ? 'active' : ''; ?>" href="<?= $base_url . 'pendaftaran'; ?>">PENDAFTARAN</a>
-                    <a class="nav-link <?= $uri_segment[2] == 'pendaftar' ? 'active' : ''; ?>" href="<?= $base_url . 'pendaftar'; ?>">CEK DATA</a>
-                    <a class="nav-link" href="<?= $base_url . 'admin/dashboard/index'; ?>">DASHBOARD</a>
+                <div class="navbar-nav ">
+                    <a class="nav-link <?= $uri_segment[3] == 'dashboard' ? 'active' : ''; ?>" href="<?= $base_url . 'admin/dashboard/index'; ?>">DASHBOARD</a>
+                    <a class="nav-link <?= $uri_segment[3] == 'user' ? 'active' : ''; ?>" href="<?= $base_url . 'admin/user/index'; ?>">USER</a>
+                    <a class="nav-link <?= $uri_segment[3] == 'berita' ? 'active' : ''; ?>" href="<?= $base_url . 'admin/berita/index'; ?>">BERITA</a>
+                    <a class="nav-link <?= $uri_segment[3] == 'pendaftaran' ? 'active' : ''; ?>" href="<?= $base_url . 'admin/pendaftaran/index'; ?>">PENDAFTARAN</a>
+                    <a class="nav-link" href="<?= $base_url; ?>">BERANDA</a>
+                    <a class="nav-link" href="<?= $base_url; ?>">LOGOUT</a>
                 </div>
             </div>
         </div>
