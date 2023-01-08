@@ -2,7 +2,7 @@
 
 <!-- content -->
 <div class="container card shadow py-5 my-5">
-    <h1 class="text-primary mb- font-title ">JUDUL</h1>
+    <h1 class="text-primary mb- font-title mb-3">JUDUL</h1>
 
 </div>
 <!-- end content -->
