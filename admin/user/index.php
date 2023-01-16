@@ -1,15 +1,6 @@
 <?php include_once '../templates/header.php' ?>
+<?php $user = query("SELECT * FROM tabel_user ORDER BY id_user DESC"); ?>
 
-<?php
-
-global $koneksi;
-$result = mysqli_query($koneksi, "SELECT * FROM tabel_user ORDER BY id_user DESC");
-$user = [];
-while ($data = mysqli_fetch_assoc($result)) {
-    $user[] = $data;
-}
-
-?>
 <!-- content -->
 <div class="container card shadow py-5 my-5">
     <h1 class="text-primary mb- font-title mb-5">User</h1>
@@ -26,7 +17,7 @@ while ($data = mysqli_fetch_assoc($result)) {
     </div>
 
     <div class="table-responsive">
-        <table class="table table-hover table-bordered">
+        <table class="table table-hover table-bordered" id="data-table">
             <thead>
                 <tr>
                     <th scope="col">#</th>
@@ -47,6 +38,8 @@ while ($data = mysqli_fetch_assoc($result)) {
                         <td><?= $row['profil'] == 1 ? 'Superadmin' : 'Admin'; ?></td>
                         <td><?= $row['aktif'] == 1 ? 'Yes' : 'No'; ?></td>
                         <td>
+                            <a class="btn btn-warning" href="<?= $base_url . 'admin/user/ubah?id=' . $row['id_user']; ?>" role="button">Ubah</a>
+                            <a class="btn btn-danger" href="<?= $base_url . 'admin/user/hapus?id=' . $row['id_user']; ?>" role="button">Hapus</a>
 
                         </td>
                     </tr>

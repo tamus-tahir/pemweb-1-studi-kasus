@@ -20,6 +20,7 @@
     <!-- end font -->
 
     <link href="<?= $base_url . 'assets/plugins/bootstrap/bootstrap.css'; ?>" rel="stylesheet">
+    <link href="<?= $base_url . 'assets/plugins/datatables/dataTables.bootstrap5.min.css'; ?>" rel="stylesheet">
     <link href="<?= $base_url . 'assets/plugins/fontawesome-free-6.2.1/css/all.css'; ?>" rel="stylesheet">
     <link href="<?= $base_url . 'assets/css/style.css'; ?>" rel="stylesheet">
 </head>
