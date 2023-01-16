@@ -5,6 +5,19 @@
 <div class="container card shadow py-5 my-5">
     <h1 class="text-primary mb- font-title mb-3">Tambah User</h1>
 
+    <?php if (isset($_SESSION['error'])) : ?>
+        <div class="alert alert-danger" role="alert">
+            <?= $_SESSION['error']; ?>
+            <?php unset($_SESSION['error']) ?>
+        </div>
+    <?php endif ?>
+    <?php if (isset($_SESSION['gagal'])) : ?>
+        <div class="alert alert-danger" role="alert">
+            <?= $_SESSION['gagal']; ?>
+            <?php unset($_SESSION['gagal']) ?>
+        </div>
+    <?php endif ?>
+
     <form method="post" action="" class="row g-3">
 
         <div class="col-md-6">

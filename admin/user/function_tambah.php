@@ -11,9 +11,16 @@ function tambah($data)
     $profil   = $data['profil'];
     $aktif   = $data['aktif'];
 
+    //verifikasi username
+    $data = mysqli_query($koneksi, "SELECT username FROM tabel_user WHERE username = '$username'");
+    if (mysqli_fetch_assoc($data)) {
+        $_SESSION['error'] = 'Username sudah digunakan';
+        return false;
+    }
+
     // verifikasi password
     if ($password != $passwordConfirm) {
-        echo 'password dan konfirmasi password tidak sama';
+        $_SESSION['error'] = 'Password dan konfirmasi password tidak sama';
         return false;
     }
 
@@ -26,8 +33,10 @@ function tambah($data)
 
 if (isset($_POST['submit'])) {
     if (tambah($_POST) > 0) {
-        echo 'data berhasil dikirim';
+        $_SESSION['berhasil'] = 'Data berhasil dikirim';
+        header('location:' . $base_url . 'admin/user/index');
     } else {
-        echo 'data gagal ditambahkan';
+        $_SESSION['gagal'] = 'Data gagal ditambahkan';
+        return false;
     }
 }

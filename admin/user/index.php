@@ -1,8 +1,25 @@
 <?php include_once '../templates/header.php' ?>
 
+<?php
+
+global $koneksi;
+$result = mysqli_query($koneksi, "SELECT * FROM tabel_user ORDER BY id_user DESC");
+$user = [];
+while ($data = mysqli_fetch_assoc($result)) {
+    $user[] = $data;
+}
+
+?>
 <!-- content -->
 <div class="container card shadow py-5 my-5">
     <h1 class="text-primary mb- font-title mb-5">User</h1>
+
+    <?php if (isset($_SESSION['berhasil'])) : ?>
+        <div class="alert alert-primary" role="alert">
+            <?= $_SESSION['berhasil']; ?>
+            <?php unset($_SESSION['berhasil']) ?>
+        </div>
+    <?php endif ?>
 
     <div class="mb-3">
         <a class="btn btn-primary" href="<?= $base_url . 'admin/user/tambah'; ?>" role="button">Tambah</a>
@@ -21,14 +38,19 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                    <td>@mdo</td>
-                    <td>@mdo</td>
-                </tr>
+                <?php $i = 1 ?>
+                <?php foreach ($user as $row) : ?>
+                    <tr>
+                        <th scope="row"><?= $i++; ?></th>
+                        <td><?= $row['username']; ?></td>
+                        <td><?= $row['nama']; ?></td>
+                        <td><?= $row['profil'] == 1 ? 'Superadmin' : 'Admin'; ?></td>
+                        <td><?= $row['aktif'] == 1 ? 'Yes' : 'No'; ?></td>
+                        <td>
+
+                        </td>
+                    </tr>
+                <?php endforeach ?>
             </tbody>
         </table>
     </div>
