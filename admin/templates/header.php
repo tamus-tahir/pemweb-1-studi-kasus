@@ -41,7 +41,7 @@
                     <a class="nav-link <?= $uri_segment[3] == 'berita' ? 'active' : ''; ?>" href="<?= $base_url . 'admin/berita/index'; ?>">BERITA</a>
                     <a class="nav-link <?= $uri_segment[3] == 'pendaftaran' ? 'active' : ''; ?>" href="<?= $base_url . 'admin/pendaftaran/index'; ?>">PENDAFTARAN</a>
                     <a class="nav-link" href="<?= $base_url; ?>">BERANDA</a>
-                    <a class="nav-link" href="<?= $base_url; ?>">LOGOUT</a>
+                    <a class="nav-link" href="" data-bs-toggle="modal" data-bs-target="#logoutModal">LOGOUT</a>
                 </div>
             </div>
         </div>

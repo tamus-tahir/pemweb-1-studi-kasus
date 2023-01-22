@@ -39,7 +39,10 @@
                         <td><?= $row['aktif'] == 1 ? 'Yes' : 'No'; ?></td>
                         <td>
                             <a class="btn btn-warning" href="<?= $base_url . 'admin/user/ubah?id=' . $row['id_user']; ?>" role="button">Ubah</a>
-                            <a class="btn btn-danger" href="<?= $base_url . 'admin/user/hapus?id=' . $row['id_user']; ?>" role="button">Hapus</a>
+
+                            <button type="button" class="btn btn-danger btn-modal-delete" data-bs-toggle="modal" data-bs-target="#exampleModal" data-url="<?= $base_url . 'admin/user/hapus?id=' . $row['id_user']; ?>">
+                                Hapus
+                            </button>
 
                         </td>
                     </tr>
