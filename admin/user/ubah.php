@@ -1,5 +1,6 @@
 <?php include_once '../templates/header.php' ?>
 <?php include_once 'function_ubah.php' ?>
+<?php security([1]); ?>
 <?php
 $id_user = $_GET['id'];
 $user = query("SELECT * FROM tabel_user WHERE id_user = $id_user")[0];

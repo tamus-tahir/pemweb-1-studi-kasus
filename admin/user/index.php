@@ -1,5 +1,6 @@
 <?php include_once '../templates/header.php' ?>
 <?php $user = query("SELECT * FROM tabel_user ORDER BY id_user DESC"); ?>
+<?php security([1]); ?>
 
 <!-- content -->
 <div class="container card shadow py-5 my-5">

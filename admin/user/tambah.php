@@ -1,5 +1,6 @@
 <?php include_once '../templates/header.php' ?>
 <?php include_once 'function_tambah.php' ?>
+<?php security([1]); ?>
 
 <!-- content -->
 <div class="container card shadow py-5 my-5">

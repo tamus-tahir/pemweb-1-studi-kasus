@@ -37,9 +37,19 @@
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav ">
                     <a class="nav-link <?= $uri_segment[3] == 'dashboard' ? 'active' : ''; ?>" href="<?= $base_url . 'admin/dashboard/index'; ?>">DASHBOARD</a>
-                    <a class="nav-link <?= $uri_segment[3] == 'user' ? 'active' : ''; ?>" href="<?= $base_url . 'admin/user/index'; ?>">USER</a>
+
+                    <!-- cek jika user adalah superadmin -->
+                    <?php if ($_SESSION['profil'] == 1) : ?>
+                        <a class="nav-link <?= $uri_segment[3] == 'user' ? 'active' : ''; ?>" href="<?= $base_url . 'admin/user/index'; ?>">USER</a>
+                    <?php endif ?>
+                    <!-- end cek jika user adalah superadmin -->
+
+
                     <a class="nav-link <?= $uri_segment[3] == 'berita' ? 'active' : ''; ?>" href="<?= $base_url . 'admin/berita/index'; ?>">BERITA</a>
+                    <a class="nav-link <?= $uri_segment[3] == 'prodi' ? 'active' : ''; ?>" href="<?= $base_url . 'admin/prodi/index'; ?>">PRODI</a>
+
                     <a class="nav-link <?= $uri_segment[3] == 'pendaftaran' ? 'active' : ''; ?>" href="<?= $base_url . 'admin/pendaftaran/index'; ?>">PENDAFTARAN</a>
+
                     <a class="nav-link" href="<?= $base_url; ?>">BERANDA</a>
                     <a class="nav-link" href="" data-bs-toggle="modal" data-bs-target="#logoutModal">LOGOUT</a>
                 </div>
