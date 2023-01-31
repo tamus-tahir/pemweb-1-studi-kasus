@@ -39,10 +39,14 @@
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav ms-auto">
                     <a class="nav-link <?= $uri_segment[2] == '' ? 'active' : ''; ?>" href="<?= $base_url; ?>">BERANDA</a>
-                    <a class="nav-link <?= $uri_segment[2] == 'berita' ? 'active' : ''; ?>" href="<?= $base_url . 'berita'; ?>">BERITA</a>
+                    <a class="nav-link <?= $uri_segment[2] == 'berita' || $uri_segment[2] == 'detailberita' ? 'active' : ''; ?>" href="<?= $base_url . 'berita'; ?>">BERITA</a>
                     <a class="nav-link <?= $uri_segment[2] == 'pendaftaran' ? 'active' : ''; ?>" href="<?= $base_url . 'pendaftaran'; ?>">PENDAFTARAN</a>
                     <a class="nav-link <?= $uri_segment[2] == 'pendaftar' ? 'active' : ''; ?>" href="<?= $base_url . 'pendaftar'; ?>">CEK DATA</a>
-                    <a class="nav-link" href="<?= $base_url . 'admin/dashboard/index'; ?>">DASHBOARD</a>
+
+                    <!-- ini hanya muncul ketika user telah berhasil login -->
+                    <?php if (isset($_SESSION['id_user'])) : ?>
+                        <a class="nav-link" href="<?= $base_url . 'admin/dashboard/index'; ?>">DASHBOARD</a>
+                    <?php endif ?>
                 </div>
             </div>
         </div>

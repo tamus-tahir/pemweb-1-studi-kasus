@@ -47,6 +47,7 @@
 <script src="<?= $base_url . 'assets/plugins/datatables/dataTables.bootstrap5.min.js'; ?>"></script>
 <!-- end datatable -->
 
+<script src="<?= $base_url . 'assets/plugins/ckeditor/ckeditor.js'; ?>"></script>
 <script src="<?= $base_url . 'assets/js/source.js'; ?>"></script>
 
 <script>
